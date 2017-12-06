@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>picnicday</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <style>
+        a,p,h1,h2,h3,h4,h5,h6{
+            font-family:candara, "微軟正黑體" ;
+        }
+        a:link, a:visited, a:hover, a:active{
+            color: #333333;
+            text-decoration: none;
+        }
+        .imgcover{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .myfont{
+            font-family:candara, "微軟正黑體" ;
+        }
+        /*--------------------------------------常用css--------------------------------*/
+        @keyframes anima1{
+          form{
+            transform: translate(0,0);
+          }
+          to{
+            transform: translate(0,-100%);
+          }
+        }/*關鍵影格*/
+
+        @keyframes anima2{
+        0%{
+          background: lightblue;
+        }
+        50%{
+          background: pink;
+          border-radius: 20% ;
+          transform: rotate(45deg);
+          border:30px solid #3A8FB7; 
+        }
+        100%{
+          background: lightblue;
+          border-radius: 50%;
+          transform: scale(.5);
+          transform: rotate(-90deg);
+        } 
+        } /*可以設定更多段*/
+        @keyframes dog1{
+        0%{
+          transform: rotate(45deg);
+        }
+        50%{
+          transform: rotate(-45deg);
+        }
+        100%{
+          transform: rotate(-90deg);
+        } 
+        } /*可以設定更多段*/
+        .anima1{
+          animation-name: anima1;
+          animation-duration: 4s; 
+          animation-iteration-count:initia; 
+          animation-direction:alternate;
+          animation-fill-mode: forwards;
+        } 
+        .dog1{
+          animation-name: dog1;
+          animation-duration: 4s; 
+          animation-iteration-count:iinfinite; 
+          animation-direction:alternate;
+          animation-fill-mode: forwards;
+        }
+
+        .wrapper {
+          font-family:candara, "微軟正黑體" ;
+          min-height: 100vh;
+          font-weight: 300;
+          color: #fff;
+          position: relative;
+        }
+
+        section {
+          height: 50vh;
+          font-size: 40px;
+          font-weight: 100;
+          background-color: #22A7F0;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-pack: center;
+              -ms-flex-pack: center;
+                  justify-content: center;
+          -webkit-box-align: center;
+              -ms-flex-align: center;
+                  align-items: center;
+        }
+        section:nth-child(1) {
+          background: white;
+        }
+        section:nth-child(2) {
+          background: #F64747;
+        }
+        section:nth-child(3) {
+          background: pink;
+        }
+        section:nth-child(4) {
+          background: lightblue;
+        }
+        section:nth-child(5) {
+          background: yellowgreen;
+        }
+        section:nth-child(6) {
+          background: #03C9A9;
+        }
+        section:nth-child(7) {
+          background: #ffcc00;
+        }
+        .nav__wrapper {
+          position: fixed;
+          height: 100%;
+          padding: 30px;
+          width: 50px;
+          z-index: 500;
+        }
+        .nav {
+          margin: 0 0 100px 30px;
+          border-left: 2px solid #fff;
+        }
+        .nav__counter {
+          font-size: 24px;
+          -webkit-transition: all 0.15s ease-out;
+          transition: all 0.15s ease-out;
+        }
+        .nav__title {
+          font-size: 32px;
+          font-weight: 300;
+          margin: 0 0 0.25em;
+          width: 300px;
+          height: 0;
+          overflow: hidden;
+          opacity: 0;
+          -webkit-transition: height 0.3s ease-out, opacity 0.2s ease-out;
+          transition: height 0.3s ease-out, opacity 0.2s ease-out;
+        }
+
+       /*----------------------timelineend---------------------*/
+        .dog{
+          position: absolute;
+          width: 482px;
+          right: 10%;
+          top: -37%;
+        }
+        .dog img{
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        .dialoguebox{
+          position: absolute;
+          width: 400px;
+          top: -60px;
+          right: 520px;
+        }
+        .dialoguebox img{
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        .slogan{
+            position: absolute;
+            top: 20%;
+        }
+        .box{
+            width: 1000px;
+            height: 80px;
+            background-color: pink;
+            margin: 0 auto;
+            z-index: 10;
+        }
+        .top{
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            margin: 0 auto;
+            background-color: #FE646D;
+            z-index: 9;
+        }
+        .topout{
+            margin-top: 0;
+            padding-left: 0;
+        }
+        .topphoto{
+            width: 25%;
+            height: 300px;
+            overflow: hidden;
+        }
+        .title {
+            background: rgba(251,31,124,.65);
+            width: 50%;
+            display: inline-block;
+            font-size: 1.875em;
+            line-height: 1.6em;
+            color: #fff;
+            position: absolute;
+            top:0;
+            left: 0;
+        }
+        .style1 {
+            display: block;
+            line-height: 1;
+            border: 3px solid #fff;
+            padding: 20px 10px;
+            margin: 10px;
+        }
+       /*--------------------------------------1end--------------------------------*/
+       aside{
+        height: 600px;
+        width: 250px;
+        background-color: #fbff8e;
+        padding: 20px;
+        margin: 20px;
+        position: relative;
+       }
+       .asidelogo{
+        background-color: #f13e60;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        border: 2px solid white;
+        overflow: hidden; 
+        position: absolute;
+        margin: -30px 0 0 -50px;
+        left: 50%;
+       }
+       .foodimg{
+        display: block;
+        width: 210px;
+        margin: 90px auto 10px;
+        padding: 5px;
+        background-color: #fff;
+        border-right: 1px solid #B4B4B5;
+        border-bottom: 1px solid #B4B4B5;
+       }
+       .imglogo{
+        margin: 30px 10px 0 10px;
+       }
+       .imgcake{
+        vertical-align: top;
+        max-width: 100%;
+        }
+        .recipe{
+            letter-spacing: 3px;
+            line-height: 28px;
+        }
+    </style>
+</head>
+<body>
+    <div class="continer-fluid">
+        <div class="title">
+<!--             <h3 >
+                <span class="style1">跟寶貝狗一起來野餐！</span>
+            </h3> -->
+        </div>
+        <nav class="nav__wrapper" id="navbar-example">
+          <ul class="nav">
+            <li role="presentation" class="active">
+              <a href="#section1">
+                <span class="nav__counter">01</span>
+                <h3 class="nav__title">Intro</h3>
+                <p class="nav__body">野餐趣</p>
+              </a>
+            </li>
+
+            <li role="presentation">
+              <a href="#section2">
+                <span class="nav__counter">02</span>
+                <h3 class="nav__title">Section 2 Title</h3>
+                <p class="nav__body">活動地點</p>
+              </a>
+            </li>
+
+            <li role="presentation">
+              <a href="#section3">
+                <span class="nav__counter">03</span>
+                <h3 class="nav__title">Section 3 Title</h3>
+                <p class="nav__body">野餐行前注意事項</p>
+              </a>
+            </li>
+            
+            <li role="presentation">
+              <a href="#section4">
+                <span class="nav__counter">04</span>
+                <h3 class="nav__title">Section 4 Title</h3>
+                <p class="nav__body">野餐食物與飲料推薦</p>
+              </a>
+            </li>
+            
+            <li role="presentation">
+              <a href="#section5">
+                <span class="nav__counter">05</span>
+                <h3 class="nav__title">Section 5 Title</h3>
+                <p class="nav__body">野餐用品必備清單</p>
+              </a>
+            </li>
+            
+            <li role="presentation">
+              <a href="#section6">
+                <span class="nav__counter">06</span>
+                <h3 class="nav__title">Section 6 Title</h3>
+                <p class="nav__body">Sed </p>
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <section class="section section1" id="section1">
+          <div class="dog"><img src="images/picnicday/dog1.png"></div>
+          <div class="dialoguebox"><img src="images/picnicday/box.png"></div>
+          <!-- <div class="slogan anima1">跟狗狗一起野餐趣</div> -->
+<!--           <div class="box"></div> -->
+        </section>
+
+        <section class="section section2" id="section2">
+        <header class="top">
+            <ul class="d-flex justify-content-center topout" >
+                <li class="topphoto">
+                    <img class="imgcover" src="images/picnicday/picnic3.jpg" alt="">
+                </li>
+                <li class="topphoto">
+                    <img class="imgcover" src="images/picnicday/picnic-dog5.jpg" alt="">
+                </li>
+                <li class="topphoto">
+                    <img class="imgcover" src="images/picnicday/picnic8.jpg" alt="">
+                </li>
+                <li class="topphoto">
+                    <img class="imgcover" src="images/picnicday/picnic-drink-1.jpg" alt="">
+                </li>
+            </ul>
+        </header><!--header/topend-->
+        </section>
+
+        <section class="section section3" id="section3">
+          Section 3
+        </section>
+
+        <section class="section section4" id="section4">
+          Section 4
+        </section>
+
+        <section class="section section5" id="section5">
+          Section 5
+        </section>
+
+        <section class="section section6" id="section6">
+          Section 6
+        </section>
+        <aside class="float-right">
+            <div class="asidelogo">
+                <img class="imglogo" src="images/lets_dog_logo.svg" alt="">
+            </div>
+            <div class="foodimg">
+                <img class="imgcake" src="images/picnicday/cake.jpg" alt="">
+            </div>
+            <div class="recipe">
+                <h4 class="myfont ">狗狗香蕉蛋糕</h4>
+                <p class="myfont ">香蕉：過熟香蕉二根<br>
+                    鮮奶：45㏄<br>
+                    低筋麵粉：75g  (需過篩)<br>
+                雞蛋：蛋黃一個、蛋白三個
+                </p>
+                <p class="myfont ">1.香蕉壓泥後與鮮奶混合<br>
+                    2.加入蛋黃、麵粉拌勻<br>
+                    3.蛋白打發至不會滴落<br>
+                    4.蛋白霜加入麵糊裡拌勻<br>
+                    5.以160℃烤50分鐘
+                </p>
+
+            </div>
+        </aside>
+        <footer></footer>
+    </div>
+<script type="text/javascript">
+
+</script>
+
+	
+</body>
+</html>
