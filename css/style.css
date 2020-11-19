@@ -115,6 +115,7 @@ a.link-animation:hover:after{
   font-size: 24px;
   color: rgba(54, 54, 64, 0.67);
   letter-spacing: 2px;
+  font-weight: 700;
 }
 .paragraph{
   margin: 0; 
@@ -152,6 +153,7 @@ a.link-animation:hover:after{
 .case-sub{
   line-height: 1.7em;
   text-decoration:underline;
+  font-weight: 700;
 }
 .case-s-content{
   max-width: 66.67%;
