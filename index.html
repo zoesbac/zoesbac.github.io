@@ -14,17 +14,31 @@
         <link rel="stylesheet" href="css/style.css" type="text/css">
         <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&family=Lato:ital@1&display=swap"
             rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script>
     </head>
 
     <body class="wrapper">
-        <div class=""></div>
-        <nav>
-            <ul class="d-flex menu-center">
-                <li class="mr-auto">Pei-Yu (Zoe) Huang</li>
-                <li><a href="about.html">About</a></li>
-                <li class="ml-4">zoesbac@gmail.com</li>
+        <!-- <nav class="navbar menu-center">
+            <a class="navbar-brand">Pei-Yu (Zoe) Huang</a>
+            <a href="about.html" class="btn btn-outline-dark btn-sm">About</a>
+            <a href="portfilio/Pei-Yu%20Huang_resume.pdf" target="_blank" class="btn btn-outline-dark btn-sm">Resume</a>
+        </nav> -->
+        <nav class="d-flex nav-fixed-top menu-center">
+            <a class="navbar-brand mr-auto">Pei-Yu (Zoe) Huang</a>
+            <ul class="d-flex">
+                <li class="mr-3"><a href="about.html" class="btn btn-outline-dark btn-sm nav-item">About</a></li>
+                <li class="mr-3"><a href="portfilio/Pei-Yu%20Huang_resume.pdf" target="_blank" class="btn btn-outline-dark btn-sm ">Resume</a></li>
+                <li id="copymail" data-clipboard-text="zoesbac@gmail.com" class="btn btn-outline-dark btn-sm button-copy"><span id="copied">zoesbac@gmail.com</span></li>
             </ul>
         </nav>
+        <header class="mt-15">
+            <div class="case-s-content pt-5">
+                <h3 class="sub mb-2">HELLO!👋I’m Zoe. I believe</h3>
+                <h1 class="title">GOOD DESIGN = </h1>
+                <h1 class="title">EXPERIENCE + REFLECTION</h1>
+                <p class="cover-text mt-3">追求商業價值與用戶體驗的完美結合，擔任使用者體驗設計師2.5 年，熱衷於產品架構與用戶研究，喜愛觀察與歸納，目標在限制中做出最好的設計解決方案。</p><p>社會心理學系畢業，曾擔任8 年業務，後學習前端工程並踏入使用者體驗設計師職涯。</p>
+            </div>
+        </header>
         <!-- projects -->
         <article>
             <section class="project">
@@ -74,8 +88,10 @@
         </article>
         <footer>
             <ul class="d-flex flex-row  menu-center">
-                <li><a href="portfilio/Pei-Yu%20Huang_resume.pdf" target="_blank">Resume</a></li>
-                <li class="ml-4">zoesbac@gmail.com</li>
+                <li>Thanks for your time!</li>
+                <li class="ml-4">My Scocial : <a href="https://www.linkedin.com/in/zoesbac" target="_blank">Linkedin</a></li>
+                <li class="ml-2"><a href="https://pda.104.com.tw/profile/share/i44c5tE31sBu0iCEWYutJcNioRvDP9FM" target="_blank">104人力銀行</a></li>
+                <!-- <li class="ml-2"><a href="https://www.yourator.co" target="_blank">Yourator</a></li> -->
             </ul>
         </footer>
         <!-- jQuery and Bootstrap Bundle (includes Popper) -->
@@ -85,6 +101,23 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
             crossorigin="anonymous"></script>
-    </body>
+        <script>
+            new ClipboardJS('#copymail');
+        
+            var clipboard = new ClipboardJS('.btn');
+        
+            clipboard.on('success', function(e) {
+                var messageSuccess = 'Email address copied';
+                $('#copied').empty().append(messageSuccess);
 
+                e.clearSelection();
+            });
+
+            clipboard.on('error', function(e) {
+                var messageError = 'Click again, please.';
+                $('#copied').empty().append(messageError);
+            });
+        
+            </script>
+    </body>
 </html>

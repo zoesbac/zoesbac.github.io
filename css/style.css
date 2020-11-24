@@ -11,6 +11,45 @@ ol, ul{
   padding-inline-start: 0;
 }
 
+/* nav */
+.nav-fixed-top{
+  position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+  padding: 0 5vw;
+  background-color: #fff;
+}
+.cover-text{
+  padding-right: 5vw;
+}
+/* copy email */
+.button-copy {
+  width: 140px; /* set a width so it doesnt change upon hover */
+  text-decoration: none;
+
+  padding: .25rem .5rem;
+  font-size: .875rem;
+  line-height: 1.5;
+  border-radius: .2rem;
+  -webkit-border-radius: .2rem;
+  -moz-border-radius: .2rem;
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  color: #343a40;
+  border-color: #343a40;
+  transition: all .5s ease-out;
+}
+.button-copy:hover span {
+  display:none;
+}
+.button-copy:hover:before {
+  content:"點擊後拷貝email";
+}
+
 /* projects */
 .wrapper{
   max-width: 90vw;
@@ -20,6 +59,9 @@ ol, ul{
   height: 15vh;
   margin: auto;
   align-items: center;
+}
+.mt-15{
+  margin-top: 15vh;
 }
 .project{
   height: 70vh;
@@ -99,9 +141,6 @@ a.link-animation:hover:after{
 }
 
 /* about */
-.about-intro{
-  margin-top: 12vh;
-}
 .title{
   font-family: 'DM Serif Text', serif;
   font-size: 60px;
@@ -124,8 +163,29 @@ a.link-animation:hover:after{
 .text{
   line-height: 2em;
 }
+.about-photo{
+  height: 60vh;
+  object-fit: contain;
+  /* width: 70vw; */
+}
+.about-text{
+  margin-top: 30vh;
+}
+
 
 /* case study */
+.cover-photo{
+  position: absolute;
+    right: 0;
+    left: 0;
+  height: 60vh;
+  /* width: 100vw; */
+}
+em{
+  font-style: normal;
+  font-weight: 700;
+  text-decoration: underline;
+}
 .photo-center{
   margin: auto;
 }
