@@ -35,7 +35,7 @@
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-57MVMDW"
             height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <!-- End Google Tag Manager (noscript) -->
-    <nav class="d-flex nav-fixed-top menu-center">
+    <nav class="hidenav d-flex nav-fixed-top menu-center">
         <a class="navbar-brand mr-auto" href="index.html">←  BACK</a>
         <ul class="d-flex">
             <li class="mr-3"><a href="about.html" class="btn btn-outline-dark btn-sm nav-item">About</a></li>
@@ -205,14 +205,30 @@
             });
         });
 
-        new ClipboardJS('#copymail');
+      //copy mail
+      new ClipboardJS('#copymail');
 
-        var clipboard = new ClipboardJS('.btn');
+      var clipboard = new ClipboardJS('.btn');
 
-        clipboard.on('success', function(e) {
-            var messageSuccess = 'Email address copied';
-            $('#copied').empty().append(messageSuccess);
-        });
+      clipboard.on('success', function(e) {
+        var messageSuccess = 'Email address copied';
+        $('#copied').empty().append(messageSuccess);
+      });
+      // hide nav
+      var lastScroll=0;
+      $(window).scroll(function(){
+        var scrollTop=$(this).scrollTop();
+        if(scrollTop<=150){
+          $(".hidenav").removeClass("active")
+        }else{
+          if(scrollTop> lastScroll){
+            $(".hidenav").addClass("active");
+          }else{
+            $(".hidenav").removeClass("active")
+          }
+        }
+        lastScroll=scrollTop;
+      });
     </script>  
   </body>
 </html>

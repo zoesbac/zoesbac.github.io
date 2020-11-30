@@ -38,7 +38,7 @@
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-57MVMDW"
         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- End Google Tag Manager (noscript) -->
-        <nav class="d-flex nav-fixed-top menu-center">
+        <nav class="hidenav d-flex nav-fixed-top menu-center">
             <a class="navbar-brand mr-auto">Pei-Yu (Zoe) Huang</a>
             <ul class="d-flex">
                 <li class="mr-3"><a href="about.html" class="btn btn-outline-dark btn-sm nav-item">About</a></li>
@@ -117,6 +117,7 @@
             integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
             crossorigin="anonymous"></script>
         <script>
+            //copy mail
             new ClipboardJS('#copymail');
         
             var clipboard = new ClipboardJS('.btn');
@@ -131,6 +132,22 @@
             clipboard.on('error', function(e) {
                 var messageError = 'Click again, please.';
                 $('#copied').empty().append(messageError);
+            });
+                  
+            // hide nav
+            var lastScroll=0;
+            $(window).scroll(function(){
+            var scrollTop=$(this).scrollTop();
+            if(scrollTop<=150){
+                $(".hidenav").removeClass("active")
+            }else{
+                if(scrollTop> lastScroll){
+                $(".hidenav").addClass("active");
+                }else{
+                $(".hidenav").removeClass("active")
+                }
+            }
+            lastScroll=scrollTop;
             });
         
             </script>

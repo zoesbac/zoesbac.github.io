@@ -12,6 +12,12 @@ ol, ul{
 }
 
 /* nav */
+.hidenav{
+  transition: all .5s;
+}
+.hidenav.active{
+  transform: translateY(-16vh);
+}
 .nav-fixed-top{
   position: fixed;
     top: 0;
