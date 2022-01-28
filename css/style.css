@@ -107,6 +107,9 @@ img{
   height: 100%;
   object-fit: cover;
 }
+.width-img{
+  height: auto;
+}
 .zhfont{
   font-size: 0.9em;
 }
